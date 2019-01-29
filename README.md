@@ -5,7 +5,7 @@ clone the repository
 
 open terminal and run the following commands;
 
-$ cd hindi-video-to-tamil-video-conversion-using-python-and-ffmpeg/
+$ cd hindi-video-to-tamil-video-conversion-using-python-and-ffmpeg/ \n
 $ mkdir split tamilAudio videos
 
 copy the video into the directorty "videos"
