@@ -30,12 +30,14 @@ subprocess.call(delcmd,shell=True)
 
 #extracting audio from video
 
-cmd_vid2aud = "ffmpeg -i "+path1+"/videos/video1.mkv -ab 32k -ac 1 -ar 44100 -vn "+path1+"/rawaudio.wav -y > /dev/zero"
-cmd_video = "ffmpeg -i " + path1 + "/videos/video1.mkv -an -c copy " +path1+"/rawvideo.mp4 -y" 
+cmdToGetVideofile = "ls  "+path1+"/videos/"
+videoFileName = subprocess.check_output(cmdToGetVideofile, shell=True)
+videoFileName=str(videoFileName).strip("b'\\n'")
+
+cmd_vid2aud = "ffmpeg -i "+path1+"/videos/"+videoFileName+" -ab 32k -ac 1 -ar 44100 -vn "+path1+"/rawaudio.wav -y > /dev/zero"
+cmd_video = "ffmpeg -i " + path1 + "/videos/"+videoFileName+" -an -c copy " +path1+"/rawvideo.mp4 -y" 
 subprocess.call(cmd_vid2aud, shell=True)
 subprocess.call(cmd_video, shell=True)
-
-
 
 # calling audioSplit script
 time.sleep(1)
